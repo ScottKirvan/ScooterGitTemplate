@@ -103,7 +103,7 @@ Contributions / Contact
 
 Credits
 -------
-**Copyright (c) (2024):** [Scott Kirvan](https://github.com/ScottKirvan)  - All rights reserved   
+**Copyright (c) (2025):** [Scott Kirvan](https://github.com/ScottKirvan)  - All rights reserved   
 *ScooterGitTemplate is licensed under the [MIT License](LICENSE.md).*  
 *repo generated from [ScooterGitTemplate](https://github.com/ScottKirvan/ScooterGitTemplate)*
 
