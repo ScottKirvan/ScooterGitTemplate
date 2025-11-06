@@ -42,14 +42,17 @@ jobs:
         run: |
           echo "Initializing template for repository: $NEW_REPO"
 
-          # Replace repository references in README.md
+          # Use a more robust approach: process the file line by line
+          # This preserves the template credit line while updating everything else
+
+          # First pass: Replace full repository path everywhere
           sed -i "s|ScottKirvan/ScooterGitTemplate|$NEW_REPO|g" README.md
 
-          # Replace project name in the title and throughout
+          # Second pass: Replace project name, but restore it in the credit line
           sed -i "s|ScooterGitTemplate|$NEW_NAME|g" README.md
 
-          # Update the template credit line to point back to the original
-          sed -i "s|repo generated from \[ScooterGitTemplate\](https://github.com/ScottKirvan/ScooterGitTemplate)|repo generated from [ScooterGitTemplate](https://github.com/ScottKirvan/ScooterGitTemplate)|g" README.md
+          # Third pass: Restore the original template reference in the credit line
+          sed -i "s|repo generated from \[$NEW_NAME\](https://github.com/$NEW_REPO)|repo generated from [ScooterGitTemplate](https://github.com/ScottKirvan/ScooterGitTemplate)|g" README.md
 
           echo "Template initialization complete"
 
