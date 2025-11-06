@@ -51,7 +51,10 @@ jobs:
           # Second pass: Replace project name, but restore it in the credit line
           sed -i "s|ScooterGitTemplate|$NEW_NAME|g" README.md
 
-          # Third pass: Restore the original template reference in the credit line
+          # Third pass: Update deployment URL to use new owner's GitHub Pages
+          sed -i "s|https://www.scottkirvan.com/$NEW_NAME/|https://$NEW_OWNER.github.io/$NEW_NAME/|g" README.md
+
+          # Fourth pass: Restore the original template reference in the credit line
           sed -i "s|repo generated from \[$NEW_NAME\](https://github.com/$NEW_REPO)|repo generated from [ScooterGitTemplate](https://github.com/ScottKirvan/ScooterGitTemplate)|g" README.md
 
           echo "Template initialization complete"
