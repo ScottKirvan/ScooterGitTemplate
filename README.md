@@ -22,7 +22,7 @@
   <a href="https://github.com/ScottKirvan/ScooterGitTemplate/issues/">
     <img src="https://img.shields.io/github/issues/ScottKirvan/ScooterGitTemplate" alt="open issues" />
   </a>
-  <a href="https://github.com/ScottKirvan/ScooterGitTemplate/blob/master/LICENSE">
+  <a href="https://github.com/ScottKirvan/ScooterGitTemplate/blob/main/LICENSE.md">
     <img src="https://img.shields.io/github/license/ScottKirvan/ScooterGitTemplate.svg" alt="license" />
   </a>
   <a href="https://discord.gg/gQH4mXWQRT">
