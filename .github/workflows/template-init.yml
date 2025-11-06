@@ -45,6 +45,7 @@ jobs:
           # Use a more robust approach: process the file line by line
           # This preserves the template credit line while updating everything else
 
+          # Process README.md
           # First pass: Replace full repository path everywhere
           sed -i "s|ScottKirvan/ScooterGitTemplate|$NEW_REPO|g" README.md
 
@@ -60,6 +61,13 @@ jobs:
           # Fifth pass: Restore the license line to reference the original template
           sed -i "s|\*$NEW_NAME is licensed under the \[MIT License\]|\*ScooterGitTemplate is licensed under the [MIT License]|g" README.md
 
+          # Process CONTRIBUTING.md
+          sed -i "s|ScottKirvan/ScooterGitTemplate|$NEW_REPO|g" CONTRIBUTING.md
+          sed -i "s|ScooterGitTemplate|$NEW_NAME|g" CONTRIBUTING.md
+
+          # Process CODE_OF_CONDUCT.md
+          sed -i "s|ScottKirvan/ScooterGitTemplate|$NEW_REPO|g" CODE_OF_CONDUCT.md
+
           echo "Template initialization complete"
 
       - name: Commit changes
@@ -67,7 +75,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md
+          git add README.md CONTRIBUTING.md CODE_OF_CONDUCT.md
           git commit -m "chore: Template initialization complete - updated repository references" || echo "No changes to commit"
           git push
 
