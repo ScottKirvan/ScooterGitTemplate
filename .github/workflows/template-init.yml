@@ -1,0 +1,70 @@
+name: Template Initialization
+
+# This workflow runs once when a new repository is created from this template
+# It automatically updates all repository references, URLs, and badges in the README
+# After running, it deletes itself to keep the new repository clean
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  template-init:
+    # Only run if the repository is NOT the original template
+    if: github.repository != 'ScottKirvan/ScooterGitTemplate'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if initialization has already run
+        id: check_init
+        run: |
+          if git log --all --grep="Template initialization complete" --pretty=format:"%s" | grep -q "Template initialization complete"; then
+            echo "already_initialized=true" >> $GITHUB_OUTPUT
+          else
+            echo "already_initialized=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Initialize template with new repository information
+        if: steps.check_init.outputs.already_initialized == 'false'
+        env:
+          NEW_REPO: ${{ github.repository }}
+          NEW_OWNER: ${{ github.repository_owner }}
+          NEW_NAME: ${{ github.event.repository.name }}
+        run: |
+          echo "Initializing template for repository: $NEW_REPO"
+
+          # Replace repository references in README.md
+          sed -i "s|ScottKirvan/ScooterGitTemplate|$NEW_REPO|g" README.md
+
+          # Replace project name in the title and throughout
+          sed -i "s|ScooterGitTemplate|$NEW_NAME|g" README.md
+
+          # Update the template credit line to point back to the original
+          sed -i "s|repo generated from \[ScooterGitTemplate\](https://github.com/ScottKirvan/ScooterGitTemplate)|repo generated from [ScooterGitTemplate](https://github.com/ScottKirvan/ScooterGitTemplate)|g" README.md
+
+          echo "Template initialization complete"
+
+      - name: Commit changes
+        if: steps.check_init.outputs.already_initialized == 'false'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git commit -m "chore: Template initialization complete - updated repository references" || echo "No changes to commit"
+          git push
+
+      - name: Remove initialization workflow
+        if: steps.check_init.outputs.already_initialized == 'false'
+        run: |
+          git rm .github/workflows/template-init.yml
+          git commit -m "chore: Remove template initialization workflow"
+          git push

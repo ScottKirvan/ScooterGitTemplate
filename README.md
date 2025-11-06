@@ -76,6 +76,9 @@ The files in the `.github` folder implement and customizes a github action that 
 > - `fix:` (bug fixes) will bump the PATCH number.
 > - `feat!:` `fix!:` or any `xxx!:` (major and breaking changes) will bump the MAJOR version number.
 
+>[!TIP]
+> **Automatic Template Initialization**: When you create a new repository from this template, a GitHub Actions workflow automatically runs on your first push to update all repository references, URLs, and badges in the README with your new repository information. The workflow then deletes itself to keep your repo clean. No manual setup required!
+
 
 
 Table of Contents
