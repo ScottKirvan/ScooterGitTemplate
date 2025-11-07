@@ -37,9 +37,9 @@
   <span> · </span>
     <a href="https://github.com/ScottKirvan/ScooterGitTemplate/blob/main/README.md">Documentation</a>
   <span> · </span>
-    <a href="https://github.com/ScottKirvan/ScooterGitTemplate/issues/new?labels=bug&title=%5BBUG%5D">Report Bug</a>
+    <a href="https://github.com/ScottKirvan/ScooterGitTemplate/issues/new?template=bug_report.md">Report Bug</a>
   <span> · </span>
-    <a href="https://github.com/ScottKirvan/ScooterGitTemplate/issues/new?labels=enhancement&title=%5BFEATURE+REQUEST%5D">Request Feature</a>
+    <a href="https://github.com/ScottKirvan/ScooterGitTemplate/issues/new?template=feature_request.md">Request Feature</a>
   </h4>
 </div>
 
