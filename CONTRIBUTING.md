@@ -41,7 +41,7 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 
 **Commit Message Convention:**
 
-We use [Conventional Commits](https://www.conventionalcommits.org/) with semantic versioning:
+We use [Conventional Commits](https://www.conventionalcommits.org/) with [Semantic Versioning](https://semver.org/):
 
 - `feat:` - New features (bumps MINOR version)
 - `fix:` - Bug fixes (bumps PATCH version)
