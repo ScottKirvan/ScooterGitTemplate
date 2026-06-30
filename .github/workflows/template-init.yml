@@ -68,6 +68,11 @@ jobs:
           # Process CODE_OF_CONDUCT.md
           sed -i "s|ScottKirvan/ScooterGitTemplate|$NEW_REPO|g" CODE_OF_CONDUCT.md
 
+          # Process release.yml — update project name, repo URLs, and docs URL
+          sed -i "s|ScottKirvan/ScooterGitTemplate|$NEW_REPO|g" .github/workflows/release.yml
+          sed -i "s|ScooterGitTemplate|$NEW_NAME|g" .github/workflows/release.yml
+          sed -i "s|https://www.scottkirvan.com/$NEW_NAME/|https://$NEW_OWNER.github.io/$NEW_NAME/|g" .github/workflows/release.yml
+
           echo "Template initialization complete"
 
       - name: Commit changes
@@ -75,7 +80,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md CONTRIBUTING.md CODE_OF_CONDUCT.md
+          git add README.md CONTRIBUTING.md CODE_OF_CONDUCT.md .github/workflows/release.yml
           git commit -m "chore: Template initialization complete - updated repository references" || echo "No changes to commit"
           git push
 
