@@ -1,11 +1,8 @@
 name: Template Initialization
 
 # This workflow runs once when a new repository is created from this template.
-# It automatically updates repository references in non-workflow files, then
-# opens a GitHub issue listing the two manual steps that require a token with
-# `workflows` scope (which github.token cannot provide):
-#   1. Update project name/context in .github/workflows/release.yml
-#   2. Delete this file (.github/workflows/template-init.yml)
+# It automatically updates repository references in README, CONTRIBUTING,
+# CODE_OF_CONDUCT, and docs, then deletes itself to keep the repo clean.
 
 on:
   push:
@@ -20,7 +17,6 @@ jobs:
 
     permissions:
       contents: write
-      issues: write
 
     steps:
       - name: Checkout repository
@@ -69,12 +65,8 @@ jobs:
 
           echo "Template initialization complete"
 
-      - name: Commit non-workflow changes
+      - name: Commit changes
         if: steps.check_init.outputs.already_initialized == 'false'
-        env:
-          NEW_NAME: ${{ github.event.repository.name }}
-          NEW_REPO: ${{ github.repository }}
-          NEW_OWNER: ${{ github.repository_owner }}
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
@@ -82,41 +74,9 @@ jobs:
           git commit -m "chore: Template initialization complete - updated repository references" || echo "No changes to commit"
           git push
 
-      - name: Open follow-up issue for manual steps
+      - name: Remove initialization workflow
         if: steps.check_init.outputs.already_initialized == 'false'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          NEW_NAME: ${{ github.event.repository.name }}
-          NEW_REPO: ${{ github.repository }}
-          NEW_OWNER: ${{ github.repository_owner }}
         run: |
-          gh issue create \
-            --title "chore: Complete template initialization (2 manual steps)" \
-            --body "## Template initialization
-
-          The automated init updated README.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md, and docs.
-
-          Two steps require a token with \`workflows\` scope and must be done manually:
-
-          ### 1. Update \`.github/workflows/release.yml\`
-
-          Replace all occurrences of \`ScooterGitTemplate\` with \`$NEW_NAME\` and \`ScottKirvan/ScooterGitTemplate\` with \`$NEW_REPO\`:
-
-          \`\`\`
-          project_name: \"$NEW_NAME\"
-          project_context: \"$NEW_NAME is ...\"
-          ## $NEW_NAME
-          \`\`\`
-
-          Also update the docs URL if needed: \`https://$NEW_OWNER.github.io/$NEW_NAME/\`
-
-          ### 2. Delete \`.github/workflows/template-init.yml\`
-
-          This file is no longer needed. Delete it directly on GitHub or via:
-          \`\`\`
           git rm .github/workflows/template-init.yml
-          git commit -m \"chore: remove template-init workflow\"
+          git commit -m "chore: Remove template initialization workflow"
           git push
-          \`\`\`
-
-          Close this issue when both steps are complete."

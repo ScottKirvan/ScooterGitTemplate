@@ -31,18 +31,18 @@ jobs:
     uses: ScottKirvan/.github/.github/workflows/reusable-release-notes.yml@main
     with:
       tag_name: ${{ needs.release-please.outputs.tag_name }}
-      project_name: "ScooterGitTemplate"
+      project_name: ${{ github.event.repository.name }}
       # TODO: Replace with a one-sentence description of what this project does
-      project_context: "ScooterGitTemplate is a GitHub repository template providing a standard project scaffold."
+      project_context: "${{ github.event.repository.name }} is a project by ${{ github.repository_owner }}."
       header: |
-        ## ScooterGitTemplate
+        ## ${{ github.event.repository.name }}
 
         > TODO: Replace with your project tagline.
 
         ---
       footer: |
         ---
-        📖 [User Guide](https://www.scottkirvan.com/ScooterGitTemplate/) · 💬 [Discord](https://discord.gg/TN6XJSNK5Y) · 🐛 [Report a Bug](https://github.com/ScottKirvan/ScooterGitTemplate/issues/new?template=bug_report.md) · ✨ [Request Feature](https://github.com/ScottKirvan/ScooterGitTemplate/issues/new?template=feature_request.md)
+        📖 [User Guide](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/) · 💬 [Discord](https://discord.gg/TN6XJSNK5Y) · 🐛 [Report a Bug](https://github.com/${{ github.repository }}/issues/new?template=bug_report.md) · ✨ [Request Feature](https://github.com/${{ github.repository }}/issues/new?template=feature_request.md)
     secrets: inherit
 
   update-changelog-prs:
@@ -58,6 +58,6 @@ jobs:
     uses: ScottKirvan/.github/.github/workflows/reusable-discord-notify.yml@main
     with:
       tag_name: ${{ needs.release-please.outputs.tag_name }}
-      project_name: "ScooterGitTemplate"
+      project_name: ${{ github.event.repository.name }}
       emoji: "🚀"  # TODO: Replace with your project's emoji
     secrets: inherit
