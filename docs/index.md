@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "ScooterGitTemplate"
   text: "TODO: Short project headline"
-  tagline: TODO: Replace with your project tagline.
+  tagline: "TODO: Replace with your project tagline."
   actions:
     - theme: brand
       text: View on GitHub
