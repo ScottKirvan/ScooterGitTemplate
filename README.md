@@ -1,4 +1,4 @@
-# ScooterGitTemplate [![starline](https://starlines.qoo.monster/assets/ScottKirvan/ScooterGitTemplate)](https://github.com/qoomon/starline)
+﻿# ScooterGitTemplate [![starline](https://raw.githubusercontent.com/ScottKirvan/ScooterGitTemplate/refs/heads/starlines/ScottKirvan/ScooterGitTemplate/starline.svg)](https://github.com/qoomon/starlines)
 <div align="center">
 
   <img src="assets/media/logo.jpg" alt="logo" width="200" height="auto" />
