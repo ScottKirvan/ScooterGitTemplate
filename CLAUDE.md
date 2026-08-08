@@ -12,17 +12,19 @@
   use `fix:`, even when they close a tracked issue.
 - Unit tests must be written alongside all new code. All bug fixes require red/green
   tests — a failing test that reproduces the bug, then the fix that makes it pass.
-- CI, lint, and formatting must all pass before committing or opening a PR.
+- CI, lint, and formatting must all pass before committing or opening a PR. Discover
+  the project's commands from the CI config, `package.json`, `Makefile`, or equivalent
+  — do not assume they match another project's toolchain.
 
 ## No Shortcuts
 
-Nothing is deferred without explicit permission from the project owner. A known issue
-is still a bug — do not mark it "won't fix", "by design", or "out of scope" unilaterally.
+Nothing is deferred without explicit permission from the user. A known issue is still
+a bug — do not mark it "won't fix", "by design", or "out of scope" unilaterally.
 
-If a library or package cannot meet a requirement in the spec, the answer is to find
-an alternative or do the work from first principles — not to defer the requirement or
-revise the spec to fit the limitation. The spec defines what the project needs; the
-implementation serves the spec, not the other way around.
+If a library or package cannot meet the stated requirements, the answer is to find an
+alternative or do the work from first principles — not to defer the requirement or
+revise it to fit the limitation. The requirements define what the project needs; the
+implementation serves the requirements, not the other way around.
 
 ## Attribution
 
@@ -37,7 +39,8 @@ can inject attribution without the agent's knowledge. Before finalizing any comm
 
 ## GitHub Issues and PRs
 
-Issue and PR templates live in `ScottKirvan/.github` and apply to this repo automatically.
+Issue and PR templates live in `ScottKirvan/.github` (or your org's equivalent) and
+apply to this repo automatically via GitHub's community health file fallback.
 
 - Bug reports → `[BUG]` title prefix, `bug_report.md` sections
 - Feature requests → `[FEATURE]` title prefix, `feature_request.md` sections
@@ -54,9 +57,10 @@ When using sub-agents for implementation:
 - Brief sub-agents on **what** to build, not **how** — implementation decisions belong
   to the sub-agent, which serves as an independent second opinion on the approach.
 - Sub-agents follow all conventions in this file except they do not create PRs.
-- The launching agent reviews the sub-agent's diff and tests before creating the PR.
+- After a sub-agent completes, review its diff and tests before creating the PR.
   This review is a genuine code review, not a compliance check — evaluate correctness,
-  spec alignment, and test quality independently.
-- Simple issues found in review may be fixed directly. Significant deviations from spec
-  or complex problems go back to the sub-agent rather than being patched over.
-- The launching agent creates the PR only after review passes.
+  requirement alignment, and test quality independently.
+- Simple issues found in review may be fixed directly. Significant deviations from the
+  stated requirements or complex problems go back to the sub-agent rather than being
+  patched over.
+- Create the PR only after review passes.
