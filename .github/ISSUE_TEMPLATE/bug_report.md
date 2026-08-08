@@ -28,7 +28,7 @@ If applicable, add screenshots to help explain your problem.
 ## Environment
 - OS: [e.g. Windows 11, macOS 14, Ubuntu 22.04]
 - Version: [e.g. 1.2.3]
-- Unreal Engine Version: [if applicable, e.g. UE 5.3]
+- Relevant toolchain/framework versions: [e.g. Node 20, Flutter 3.x, UE 5.3]
 - Additional context: [any other relevant information]
 
 ## Additional Context
