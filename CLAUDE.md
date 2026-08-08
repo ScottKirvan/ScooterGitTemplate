@@ -1,5 +1,14 @@
 # CLAUDE.md — ScooterGitTemplate
 
+## Keeping This File Current
+
+This file is the primary context for any agent working in this repo — keep it accurate
+as the project evolves. When you learn what the project is, add a brief description at
+the top. As key files, build commands, and architectural decisions emerge, record them
+here so future sessions start with full context rather than re-deriving it.
+
+Update this file in the same commit as the work it documents.
+
 ## Working Conventions
 
 - Never commit or push directly to `main`. Always branch first, then PR.
