@@ -15,20 +15,29 @@ Please delete options that are not relevant.
 - [ ] Other (please describe):
 
 ## How Has This Been Tested?
-Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce.
+Describe the automated tests added or run to verify these changes.
 
-- [ ] Test A
-- [ ] Test B
+- [ ] Unit tests added / updated
+- [ ] Existing tests pass
 
 **Test Configuration**:
 - OS:
 - Version:
-- Unreal Engine Version (if applicable):
+- Relevant toolchain/framework versions:
+
+## User Testing / Acceptance
+Step-by-step instructions for verifying this change works correctly from the user's perspective. Be specific enough that someone unfamiliar with the change can follow without guessing.
+
+1. 
+2. 
+3. 
+
+**Expected outcome:**
 
 ## Checklist
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
+- [ ] Comments are present only where the *why* is non-obvious — well-named code should be self-documenting
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new warnings
 - [ ] I have added tests that prove my fix is effective or that my feature works
