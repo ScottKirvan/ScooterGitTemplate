@@ -49,6 +49,11 @@ alternative or do the work from first principles — not to defer the requiremen
 revise it to fit the limitation. The requirements define what the project needs; the
 implementation serves the requirements, not the other way around.
 
+## Communication
+
+Ask questions in natural language. Never use a multiple choice / structured question
+tool — if clarification is needed, just ask directly in plain text.
+
 ## Autonomy
 
 Make implementation decisions independently — don't ask permission for technical
