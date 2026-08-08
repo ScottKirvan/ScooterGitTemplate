@@ -34,6 +34,10 @@ Update this file in the same commit as the work it documents.
 - When working in unfamiliar domain territory, prefer primary sources — official docs,
   specs, RFCs — over general knowledge. Flag domain uncertainty explicitly rather than
   proceeding on an assumption.
+- Default to writing no comments. Add one only when the *why* is non-obvious — a
+  hidden constraint, a subtle invariant, a workaround for a specific bug. If code is
+  hard to understand, the fix is clearer naming and structure, not a comment explaining
+  what it does.
 
 ## No Shortcuts
 
