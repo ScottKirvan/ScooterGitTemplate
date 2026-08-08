@@ -63,6 +63,9 @@ jobs:
           sed -i "s|ScottKirvan/ScooterGitTemplate|$NEW_REPO|g" docs/index.md
           sed -i "s|ScooterGitTemplate|$NEW_NAME|g" docs/index.md
 
+          # Process CLAUDE.md — replace only the title; preserve the template credit link
+          sed -i "s|# CLAUDE.md — ScooterGitTemplate|# CLAUDE.md — $NEW_NAME|g" CLAUDE.md
+
           echo "Template initialization complete"
 
       - name: Commit changes
@@ -70,7 +73,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md CONTRIBUTING.md CODE_OF_CONDUCT.md docs/.vitepress/config.mts docs/index.md
+          git add README.md CONTRIBUTING.md CODE_OF_CONDUCT.md docs/.vitepress/config.mts docs/index.md CLAUDE.md
           git commit -m "chore: Template initialization complete - updated repository references" || echo "No changes to commit"
           git push
 
