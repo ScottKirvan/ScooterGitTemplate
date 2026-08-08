@@ -59,6 +59,7 @@
 > - [ ] Fill in the Features, Installation, and Usage sections below
 > - [ ] Review and update the [Code of Conduct](CODE_OF_CONDUCT.md) contact information
 > - [ ] Enable GitHub Pages in repository settings if you want a project website
+> - [ ] Review and customize `CLAUDE.md` if using AI coding agents, or delete it if not
 > - [ ] Remove or update this checklist section
 
 Branches
@@ -81,6 +82,7 @@ ScooterGitTemplate
 │   ├───css                      # Styling for GitHub Pages
 │   └───media                    # Images and logos
 ├───notes                        # CHANGELOG, VERSION, TODO
+├───CLAUDE.md                    # AI agent context (optional — see Key Features)
 ├───CODE_OF_CONDUCT.md           # Community guidelines
 ├───CONTRIBUTING.md              # Contribution guidelines
 ├───LICENSE.md                   # MIT License
@@ -96,6 +98,8 @@ ScooterGitTemplate
 **Template Initialization**: The `template-init.yml` workflow automatically updates repository references when you create a new repo from this template, then deletes itself.
 
 **.gitignore Templates**: The `.github/gitignore-templates/` folder contains ready-to-use `.gitignore` files for Unreal Engine, Unity, Python, Node.js, C++, and general development. See the [templates README](.github/gitignore-templates/) for usage.
+
+**AI Agent Context (optional)**: `CLAUDE.md` gives AI coding agents (e.g. [Claude Code](https://claude.ai/code)) a starting set of engineering standards — branching conventions, commit discipline, test-driven development, and a no-shortcuts ethos. The project name is automatically substituted on initialization. Customize it as your project evolves, or delete it if you're not using AI agents.
 
 >[!NOTE]
 > When using this template project, do not clone the tags or branches. Stick with `main` as the name of your main release branch. Change the version number in the `.release-please-manifest.json` file to the version you want to start with.
