@@ -6,6 +6,8 @@
 - Branch names must describe the work (e.g. `fix/login-timeout`, `feat/export-csv`).
   No random characters, UUIDs, or generated suffixes to ensure uniqueness — if a name
   is already taken, pick a more specific descriptive name instead.
+- One concern per branch and PR. If work naturally splits into independent problems,
+  split the branches too — resist bundling unrelated changes into one PR.
 - Conventional commits: `feat:` / `fix:` / `docs:` / `chore:` / `refactor:` / `test:`.
   Breaking: `feat!:`.
 - `feat:` is for genuinely new user-facing capabilities only. Bug fixes and corrections
@@ -15,6 +17,14 @@
 - CI, lint, and formatting must all pass before committing or opening a PR. Discover
   the project's commands from the CI config, `package.json`, `Makefile`, or equivalent
   — do not assume they match another project's toolchain.
+- Prefer narrow, localised changes. Favour modularity that contains the blast radius
+  of future edits — a fix or feature should not require touching unrelated parts of
+  the codebase. If it does, that's a design signal worth surfacing.
+- Refactoring is a first-class activity, not something to defer. Improve structure as
+  you go rather than accumulating technical debt for a later pass.
+- When working in unfamiliar domain territory, prefer primary sources — official docs,
+  specs, RFCs — over general knowledge. Flag domain uncertainty explicitly rather than
+  proceeding on an assumption.
 
 ## No Shortcuts
 
@@ -25,6 +35,12 @@ If a library or package cannot meet the stated requirements, the answer is to fi
 alternative or do the work from first principles — not to defer the requirement or
 revise it to fit the limitation. The requirements define what the project needs; the
 implementation serves the requirements, not the other way around.
+
+## Autonomy
+
+Make implementation decisions independently — don't ask permission for technical
+choices within the stated requirements. Escalate only when something would change
+scope, defer a requirement, or contradict what the user has described as the goal.
 
 ## Attribution
 
