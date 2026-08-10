@@ -56,7 +56,12 @@ implementation serves the requirements, not the other way around.
 ## Communication
 
 Ask questions in natural language. Never use a multiple choice / structured question
-tool — if clarification is needed, just ask directly in plain text.
+tool — including Claude Code's `AskUserQuestion` tool — if clarification is needed,
+just ask directly in plain text. This is a project-wide preference, not a
+per-session one: some interfaces render binned/multiple-choice questions poorly,
+and forcing a question into fixed options loses the nuance an open question
+would surface. Standard engineering practice is to ask a real question and read
+a real answer, not to pick from a menu.
 
 ## Autonomy
 
@@ -90,7 +95,11 @@ apply to this repo automatically via GitHub's community health file fallback.
 - General → `[GENERAL]` title prefix, `general_report.md` sections
 - PRs → fill all checklist sections; no attribution anywhere in the body
 
-Before creating any issue: check for duplicates first (`gh issue list --state open --limit 100`).
+Before creating any issue: check for duplicates first — `gh issue list --state open
+--limit 100` where the `gh` CLI is available, or the equivalent GitHub search/list
+tool (e.g. an MCP GitHub server's `search_issues`/`list_issues`) in hosted sessions
+that don't have `gh`. Don't skip the check just because the literal command doesn't
+apply in a given environment.
 Create issues only when explicitly asked — don't preemptively file future work.
 
 ## Sub-Agent Workflow
