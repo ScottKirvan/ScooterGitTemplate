@@ -15,6 +15,10 @@ Update this file in the same commit as the work it documents.
 - Branch names must describe the work (e.g. `fix/login-timeout`, `feat/export-csv`).
   No random characters, UUIDs, or generated suffixes to ensure uniqueness — if a name
   is already taken, pick a more specific descriptive name instead.
+- If a branch name is pre-assigned by tooling (a hosted agent session, a CI runner)
+  rather than chosen by you, verify it against this convention before the first push.
+  Rename locally (`git branch -m <name>`) if it doesn't match — being handed a name
+  isn't an exemption from the rule.
 - One concern per branch and PR. If work naturally splits into independent problems,
   split the branches too — resist bundling unrelated changes into one PR.
 - Conventional commits: `feat:` / `fix:` / `docs:` / `chore:` / `refactor:` / `test:`.
@@ -65,11 +69,16 @@ scope, defer a requirement, or contradict what the user has described as the goa
 No attribution of any kind in commit messages, PR bodies, or issue text — no
 "Generated with", "Co-Authored-By", "Created by Claude", or any AI/tool credit lines.
 
-**Verify by reading the repo, not from memory.** Tooling (GitHub Actions, IDE plugins)
-can inject attribution without the agent's knowledge. Before finalizing any commit or PR:
+**Verify by reading the repo, not from memory.** Some git hosting integrations inject
+a footer server-side even into a request that omitted one — treat that as expected
+behavior, not a surprise. After every commit and after every PR create/update, re-read
+the actual result and strip any attribution found, regardless of source:
 - Run `git log` and read the actual commit messages
-- Read the actual PR body text
+- Re-fetch and read the actual PR body text
 - Remove any attribution found, regardless of source
+
+A commit or PR is not finished until this read-back check has run — don't rely on what
+you wrote, check what actually landed.
 
 ## GitHub Issues and PRs
 
