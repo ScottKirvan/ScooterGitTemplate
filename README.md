@@ -99,7 +99,7 @@ ScooterGitTemplate
 
 **.gitignore Templates**: The `.github/gitignore-templates/` folder contains ready-to-use `.gitignore` files for Unreal Engine, Unity, Python, Node.js, C++, and general development. See the [templates README](.github/gitignore-templates/) for usage.
 
-**AI Agent Context (optional)**: `CLAUDE.md` gives AI coding agents (e.g. [Claude Code](https://claude.ai/code)) a starting set of engineering standards — branching conventions, commit discipline, test-driven development, and a no-shortcuts ethos. The project name is automatically substituted on initialization. Customize it as your project evolves, or delete it if you're not using AI agents.
+**AI Agent Context (optional)**: The included `CLAUDE.md` gives AI coding agents (e.g. [Claude Code](https://claude.ai/code)) a starting set of engineering standards -- specifically AI-Native eXtreme Programming practices -- branching conventions, commit discipline, test-driven development, and a no-shortcuts ethos. The project name is automatically substituted on initialization. Customize it as your project evolves, or delete it if you're not using AI agents.
 
 >[!NOTE]
 > When using this template project, do not clone the tags or branches. Stick with `main` as the name of your main release branch. Change the version number in the `.release-please-manifest.json` file to the version you want to start with.
