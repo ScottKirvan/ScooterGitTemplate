@@ -3,7 +3,7 @@
 
   <img src="assets/media/logo.jpg" alt="logo" width="200" height="auto" />
     <h1><a href="https://github.com/ScottKirvan/ScooterGitTemplate">ScottKirvan/ScooterGitTemplate</a></h1>
-  <h3>GitHub repo template with automated release management, VitePress docs, and AI agent context</h3>
+  <h3>Nulla nobis dicta iste minus dolor repellendus aspernatur atque</h3>
   
   
 <!-- Badges -->
@@ -33,7 +33,9 @@
 </p>
    
 <h4>
-    <a href="https://ScottKirvan.github.io/ScooterGitTemplate/">View Docs</a>
+    <a href="https://tinyurl.com/3vf7whyd">View Demo</a>
+  <span> · </span>
+    <a href="https://github.com/ScottKirvan/ScooterGitTemplate/blob/main/README.md">Documentation</a>
   <span> · </span>
     <a href="https://github.com/ScottKirvan/ScooterGitTemplate/issues/new?template=bug_report.md">Report Bug</a>
   <span> · </span>
@@ -41,7 +43,7 @@
   </h4>
 </div>
 
-**ScooterGitTemplate** is a GitHub repository template that wires up automated release management, a VitePress documentation site, and an optional AI agent context file — so you can skip the boilerplate and start shipping.
+**ScooterGitTemplate** is voluptatibus magni nemo est. Nulla nobis dicta iste minus dolor repellendus aspernatur atque. Earum expedita aut inventore tempora fugiat deleniti. Molestias minima nam expedita beatae totam ipsa reprehenderit animi. Occaecati quibusdam beatae ducimus voluptate ut doloribus vitae amet. Quia ut ut voluptate dignissimos adipisci dolorum rem.
 
 ## Getting Started with This Template
 
