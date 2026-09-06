@@ -87,6 +87,29 @@ alternative or do the work from first principles — not to defer the requiremen
 revise it to fit the limitation. The requirements define what the project needs; the
 implementation serves the requirements, not the other way around.
 
+## Verification Discipline
+
+Never state that something works, is fixed, or is verified unless it was checked at
+that exact moment with a command whose output is the actual basis for the claim — not
+memory of an earlier check, not knowledge of what the code is supposed to do, and not
+a sub-agent's self-report taken at face value. The standard is identical in both
+directions: the skepticism applied to a sub-agent's "done" (see Sub-Agent Workflow)
+applies just as much to Claude's own claims to the user.
+
+Before reporting a task or verification as complete:
+- State the concrete, checkable success criteria before running anything — specific
+  facts ("a PR exists against branch X containing files A and B"), not a general
+  expectation ("it should work").
+- Check every criterion with a fresh command at the time of the claim, and cite its
+  actual output as the basis for what's reported.
+- If a task has multiple required scenarios (e.g. two code paths, or a dev environment
+  and the real deployment target), track them explicitly and don't report the whole
+  task done until every one has been checked — a passing sub-step is not a finished
+  task.
+- Report against the criteria list: state plainly what's verified and what isn't,
+  rather than describing the completed part in success language and leaving gaps
+  implicit.
+
 ## Communication
 
 Ask questions in natural language. Never use a multiple choice / structured question
