@@ -17,6 +17,7 @@ jobs:
 
     permissions:
       contents: write
+      actions: write
 
     steps:
       - name: Checkout repository
@@ -76,6 +77,15 @@ jobs:
           git add README.md CONTRIBUTING.md CODE_OF_CONDUCT.md docs/.vitepress/config.mts docs/index.md CLAUDE.md
           git commit -m "chore: Template initialization complete - updated repository references" || echo "No changes to commit"
           git push
+
+      - name: Enable release workflow
+        if: steps.check_init.outputs.already_initialized == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh api "repos/$REPO/actions/workflows/release.yml/enable" --method PUT
+          echo "Release workflow enabled for $REPO"
 
       - name: Remove initialization workflow
         if: steps.check_init.outputs.already_initialized == 'false'

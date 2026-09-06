@@ -13,6 +13,8 @@ permissions:
 
 jobs:
   release-please:
+    # Skip on the template repo itself — template-init.yml enables this for derived repos
+    if: github.repository != 'ScottKirvan/ScooterGitTemplate'
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
