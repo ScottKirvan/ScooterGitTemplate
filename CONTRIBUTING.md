@@ -36,43 +36,46 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 1. Fork the repository and create your branch from `main`
 2. If you've added code, add tests if applicable
 3. Ensure your code follows the existing style
-4. Make sure your commits follow our commit message conventions
+4. Make sure your commits follow the commit message conventions below
 5. Update documentation as needed
 
-**Commit Message Convention:**
+## Commit Message Conventions
 
-We use [Conventional Commits](https://www.conventionalcommits.org/) with [Semantic Versioning](https://semver.org/):
+This project uses [Conventional Commits](https://www.conventionalcommits.org/) with [Semantic Versioning](https://semver.org/). Release-Please reads your commit messages to determine the next version number and generate the CHANGELOG automatically — so the type prefix matters.
 
-- `feat:` - New features (bumps MINOR version)
-- `fix:` - Bug fixes (bumps PATCH version)
-- `feat!:` or `fix!:` - Breaking changes (bumps MAJOR version)
-- `docs:` - Documentation only changes
-- `style:` - Code style changes (formatting, etc.)
-- `refactor:` - Code refactoring
-- `test:` - Adding or updating tests
-- `chore:` - Maintenance tasks
+| Prefix | Effect | Use for |
+|--------|--------|---------|
+| `feat:` | Bumps **MINOR** version | New features |
+| `fix:` | Bumps **PATCH** version | Bug fixes and corrections |
+| `docs:` | No version bump | Documentation only |
+| `chore:` | No version bump | Maintenance, generated files |
+| `refactor:` | No version bump | Code restructuring |
+| `test:` | No version bump | Adding or updating tests |
+| `feat!:` / `fix!:` / `xxx!:` | Bumps **MAJOR** version | Breaking changes |
 
 **Examples:**
 ```
-feat: add Python .gitignore template
-fix: correct LICENSE badge URL in README
+feat: add Rust .gitignore template
+fix: correct workflow trigger in docs.yml
 docs: update installation instructions
-feat!: change template initialization workflow
+feat!: change template initialization to require manual trigger
 ```
 
-### Pull Request Process
+> **Tip:** When in doubt between `feat:` and `fix:`, use `fix:` — it's the right call for corrections to existing behavior even when they close a tracked issue.
 
-1. Update the README.md with details of changes if applicable
-2. Update the CHANGELOG.md is handled automatically by Release Please
-3. The PR will be merged once you have approval from a maintainer
-4. Your PR should pass all checks and have no merge conflicts
+## Pull Request Process
+
+1. Update README.md if your change affects user-facing behavior
+2. CHANGELOG.md is updated automatically by Release-Please — do not edit it manually
+3. The PR will be merged once approved by a maintainer
+4. Your PR should pass all CI checks and have no merge conflicts
 
 ## Development Setup
 
 1. Fork and clone the repository
-2. Create a new branch for your feature/fix
+2. Create a new branch for your feature or fix: `git checkout -b feat/your-feature origin/main`
 3. Make your changes
-4. Test your changes by creating a new repository from your template
+4. Test by creating a new repository from your modified template fork and verifying the template-init workflow runs correctly
 5. Submit a pull request
 
 ## Project Structure
@@ -80,29 +83,36 @@ feat!: change template initialization workflow
 ```
 ScooterGitTemplate/
 ├── .github/
-│   ├── gitignore-templates/  # Example .gitignore files
-│   ├── ISSUE_TEMPLATE/       # Issue templates
-│   ├── workflows/            # GitHub Actions
-│   └── PULL_REQUEST_TEMPLATE.md
-├── assets/                   # Images and CSS for GitHub Pages
-├── notes/                    # CHANGELOG, VERSION, TODO
-├── README.md
+│   ├── gitignore-templates/    # Ready-to-use .gitignore files
+│   ├── release-please/         # Release-Please config and version manifest
+│   └── workflows/              # GitHub Actions workflows
+├── assets/
+│   └── media/                  # Images and logos
+├── docs/                       # VitePress documentation site
+│   ├── .vitepress/             # VitePress config and theme
+│   └── index.md                # Docs home page
+├── notes/                      # CHANGELOG, VERSION, TODO
+├── CLAUDE.md                   # AI agent context (optional)
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md             # This file
 ├── LICENSE.md
-└── CONTRIBUTING.md
+└── README.md
 ```
 
-## Testing
+> **Note:** Issue templates, PR templates, and funding config live in the org-level [`ScottKirvan/.github`](https://github.com/ScottKirvan/.github) repo and apply here automatically via GitHub's community health file fallback.
 
-When making changes to the template initialization workflow, test by:
+## Testing Template Changes
 
-1. Creating a new repository from your modified template
-2. Verifying the workflow runs successfully
-3. Checking that all repository references are updated correctly
-4. Confirming the workflow deletes itself after completion
+When making changes to the initialization or release workflows, test by:
+
+1. Creating a new repository from your modified template fork
+2. Verifying `template-init.yml` runs successfully and all repository references are updated
+3. Confirming the workflow deletes itself after completion
+4. Making a conventional commit and verifying Release-Please creates the expected PR
 
 ## Questions?
 
-Feel free to open an issue for questions or reach out via:
+Feel free to open an issue or reach out via:
 - [LinkedIn](https://www.linkedin.com/in/scottkirvan/)
 - [Discord](https://discord.gg/TN6XJSNK5Y)
 
